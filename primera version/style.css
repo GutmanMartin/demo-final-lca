@@ -2,7 +2,3 @@ p {
     font-family: monospace;
     line-height: 0%;
 }
-
-.columns {
-    display: flex;
-}

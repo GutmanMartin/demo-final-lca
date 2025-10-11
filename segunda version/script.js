@@ -1,5 +1,5 @@
 class Plasma {
-    constructor(w, h, c, upd) {
+    constructor(w, h, c, upd, container) {
 
         this.plasma = []
         this.pLines = []
@@ -15,7 +15,7 @@ class Plasma {
             }
             const p = document.createElement("p")
             p.classList.add("pLine")
-            domBody.appendChild(p)
+            container.appendChild(p)
             this.pLines.push(p)
         }
     }
@@ -73,11 +73,15 @@ const update2 = function () {
 
 const domBody = document.querySelector("body")
 
+const column1 = document.querySelector(".column1")
+const column2 = document.querySelector(".column2")
+
+
 let t = 0
 
 const cuadros = [
-    new Plasma(20, 20, color, update1),
-    new Plasma(40, 30, color, update2)
+    new Plasma(20, 20, color, update1, column1),
+    new Plasma(40, 30, color, update2, column2)
 ]
 
 
