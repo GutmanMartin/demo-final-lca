@@ -1,6 +1,11 @@
 p {
     font-family: monospace;
     line-height: 0%;
+    color:antiquewhite;
+}
+
+body {
+    background-color: black;
 }
 
 .columns {

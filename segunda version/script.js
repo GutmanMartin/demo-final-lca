@@ -1,39 +1,4 @@
-class Plasma {
-    constructor(w, h, c, upd, container) {
-
-        this.plasma = []
-        this.pLines = []
-        this.WIDTH = w
-        this.HEIGHT = h
-        this.update = upd
-        this.color = c
-    
-        for (let y = 0; y < this.HEIGHT; y++) {
-            this.plasma.push([])
-            for (let x = 0; x < this.HEIGHT; x++) {
-                this.plasma[y].push(0)
-            }
-            const p = document.createElement("p")
-            p.classList.add("pLine")
-            container.appendChild(p)
-            this.pLines.push(p)
-        }
-    }
-
-    draw() {
-        for (let y = 0; y < this.HEIGHT; y++) {
-            let line = ""
-            for (let x = 0; x < this.WIDTH; x++) {
-                line += this.plasma[y][x]
-            }
-            this.pLines[y].textContent = line
-        }
-    }
-
-}
-
-
-const color = [".", ",", "-", "+", "*", "<", ">", "x", "X", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",]
+const color = [".", ",", "-", "+", "*", "x", "X", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",]
 
 
 const update1 = function () {
@@ -54,25 +19,46 @@ const update1 = function () {
 
 const update2 = function () {
     for (let y = 0; y < this.HEIGHT; y++) {
-            for (let x = 0; x < this.WIDTH; x++) {
-                let a = getSin(
-                    x/16
-                    + y/8 
-                    + t / 10
-                    + getSin(x/50)
-                    //- getSin(y/20 + t/100)
-                ) 
-                this.plasma[y][x] = this.color[a]
+        for (let x = 0; x < this.WIDTH; x++) {
+            let a = getSin(
+                x/16
+                + y/8 
+                + t / 10
+                + getSin(x/50)
+                //- getSin(y/20 + t/100)
+            ) 
+            this.plasma[y][x] = this.color[a]
 
-            }
         }
+    }
+}
+
+const update3 = function () {
+    for (let y = 0; y < this.HEIGHT; y++) {
+        for (let x = 0; x < this.WIDTH; x++) {
+            let a = getSin(
+ //               x/16
+                + y/8 
+            ) 
+
+            let b = 10
+            let mix = x / this.WIDTH
+
+            let c = Math.floor(
+                map((a * mix + 39 * (1-mix)),
+                    0, 40, 0, this.color.length
+                )
+            )
+            console.log(c)
+            this.plasma[y][x] = this.color[c]
+        }
+    }
 }
 
 
-//const pLines = document.querySelectorAll(".pLine")
+
 
 const domBody = document.querySelector("body")
-
 const column1 = document.querySelector(".column1")
 const column2 = document.querySelector(".column2")
 
@@ -80,8 +66,8 @@ const column2 = document.querySelector(".column2")
 let t = 0
 
 const cuadros = [
-    new Plasma(20, 20, color, update1, column1),
-    new Plasma(40, 30, color, update2, column2)
+    //new Plasma(20, 20, color, update1, column1),
+    new Plasma(80, 40, "-.º*+xX0" , update3, column2)
 ]
 
 
