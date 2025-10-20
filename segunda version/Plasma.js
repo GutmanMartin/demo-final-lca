@@ -1,5 +1,5 @@
 class Plasma {
-    constructor(w, h, c, upd, container) {
+    constructor(w, h, c, upd, container, classes = []) {
 
         this.plasma = []
         this.pLines = []
@@ -15,6 +15,10 @@ class Plasma {
             }
             const p = document.createElement("p")
             p.classList.add("pLine")
+            for (let i = 0; i < classes.length; i++) {
+                p.classList.add(classes[i]);
+                
+            }
             container.appendChild(p)
             this.pLines.push(p)
         }

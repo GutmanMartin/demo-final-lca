@@ -66,8 +66,9 @@ const column2 = document.querySelector(".column2")
 let t = 0
 
 const cuadros = [
-    //new Plasma(20, 20, color, update1, column1),
-    new Plasma(80, 40, "-.º*+xX0" , update3, column2)
+   // new Plasma(20, 20, color, update1, column1, ["blue", "big"]),
+    new Plasma(80, 40, "-.º*+xX0" , update3, column2, ["red",]),
+    //new Plasma(80, 40, "-.º*+xX0" , update3, column2, ["red",])
 ]
 
 
