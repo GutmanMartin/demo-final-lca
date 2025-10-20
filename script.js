@@ -61,13 +61,15 @@ const update3 = function () {
 const domBody = document.querySelector("body")
 const column1 = document.querySelector(".column1")
 const column2 = document.querySelector(".column2")
+const column3 = document.querySelector(".column3")
 
 
 let t = 0
 
 const cuadros = [
-   // new Plasma(20, 20, color, update1, column1, ["blue", "big"]),
-    new Plasma(80, 40, "-.º*+xX0" , update3, column2, ["red",]),
+    new Plasma(200, 100, color, update1, column1, ["green", "small"]),
+    new Plasma(200, 100, color, update1, column2, ["blue",]),
+    new Plasma(80, 40, "-.º*+xX0" , update3, column3, ["red", "big"]),
     //new Plasma(80, 40, "-.º*+xX0" , update3, column2, ["red",])
 ]
 
@@ -93,7 +95,7 @@ setInterval(() => {
     update()
     draw()
 
-}, 200)
+}, 2000)
 
 
 
