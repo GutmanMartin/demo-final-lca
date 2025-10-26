@@ -1,4 +1,6 @@
-const color = [".", ",", "-", "+", "*", "x", "X", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",]
+//const defaultColor = [".", ",", "-", "+", "*", "x", "X", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9",]
+
+const defaultColor = "123456789"
 
 
 const update1 = function () {
@@ -60,6 +62,36 @@ const update3 = function () {
     }
 }
 
+const update4 = function () {
+    const w = this.WIDTH
+    for (let y = 0; y < this.HEIGHT; y++) {
+        for (let x = 0; x < this.WIDTH; x++) {
+            let a = getSin(
+                + y/8
+            ) 
+
+            let b = getSin(x / 2, 20)
+
+            let d = getSin(y/2.5, 20)
+
+            const color = returnColor(
+
+
+                returnEnvelope([0, 20, 50, 80], x) *a
+                    + returnEnvelope([10, 120, 150, 200], x) *b
+                    + returnEnvelope([30, 45, 55, 150], x) *d, 70
+            )
+
+
+
+            this.plasma[y][x] = color
+        }
+    }
+}
+
+// TODO: a function that recieves this.color, an x, and a max, and returns the color. Basically remake returnColor
+
+// TODO: think of a way to redefine envelopes. If you are going for the portraits stuff, those envelopes need to be defined on top as constansts, so you can call them on updates. They cant recieve whis.WIDTH, so they must work with fractions of width
 
 
 
@@ -72,10 +104,10 @@ const column3 = document.querySelector(".column3")
 let t = 0
 
 const cuadros = [
-    /*new Plasma(200, 100, color, update1, column2, ["blue",]),
-    new Plasma(400, 150, color, update3, column1, ["green", "small"]),
+    new Plasma(200, 100, defaultColor, update4, column2, ["blue", "small"]),
+   /* new Plasma(400, 150, defaultColor, update3, column1, ["green", "small"]),
     new Plasma(80, 40, "-.º*+xX0" , update1, column3, ["red", "big"]),
-    //new Plasma(80, 40, "-.º*+xX0" , update3, column2, ["red",])*/
+    new Plasma(80, 40, "-.º*+xX0" , update3, column2, ["red",])*/
 ]
 
 
@@ -96,10 +128,13 @@ function draw() {
     }
 }
 
-setInterval(() => {
+update()
+draw()
+/*setInterval(() => {
     update()
     draw()
 
 }, 2000)
 
 
+*/

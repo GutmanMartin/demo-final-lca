@@ -1,10 +1,14 @@
 
-function getSin(x) {
-    return Math.floor((Math.sin(x) +1) * color.length/2)
+function getSin(x, gain = 50) {
+    // recieves an x and a gain, returns sin(x) * gain
+    return (Math.sin(x) +1) * gain/2
 }
 
-function returnColor(n) {
-    return color[map(n, 0, 255, 0, color.length)]
+function returnColor(x, gain = 50, palette = defaultColor) {
+    // gain is inverse, when its smaller it saturates most, when higher it saturates less
+    let i = map(x, 0, gain, 0, palette.length) 
+    i = Math.floor(i)
+    return palette[i % palette.length]
 }
 
 function map(value, start1, stop1, start2, stop2) {
