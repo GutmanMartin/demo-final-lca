@@ -17,11 +17,13 @@ p {
 
 p.big {
     font-size: 50rem;
-    margin-top: 300px;
+    
+   margin-top: 300px;
     margin-bottom: 700px;
 }
 
 p.small {
+    
     font-size: 0.5rem;
 }
 

@@ -11,8 +11,14 @@ const update1 = function () {
                     //+ getSin(x/50)
                     //- getSin(y/20 + t/100)
                 ) 
-                this.plasma[y][x] = this.color[a]
+                let c = Math.floor(
+                map(a,
+                    0, 50, 0, this.color.length
+                ))
 
+                this.plasma[y][x] = this.color[c]
+
+            
             }
         }
 }
@@ -49,7 +55,6 @@ const update3 = function () {
                     0, 40, 0, this.color.length
                 )
             )
-            console.log(c)
             this.plasma[y][x] = this.color[c]
         }
     }
@@ -67,10 +72,10 @@ const column3 = document.querySelector(".column3")
 let t = 0
 
 const cuadros = [
-    new Plasma(200, 100, color, update1, column1, ["green", "small"]),
-    new Plasma(200, 100, color, update1, column2, ["blue",]),
-    new Plasma(80, 40, "-.º*+xX0" , update3, column3, ["red", "big"]),
-    //new Plasma(80, 40, "-.º*+xX0" , update3, column2, ["red",])
+    /*new Plasma(200, 100, color, update1, column2, ["blue",]),
+    new Plasma(400, 150, color, update3, column1, ["green", "small"]),
+    new Plasma(80, 40, "-.º*+xX0" , update1, column3, ["red", "big"]),
+    //new Plasma(80, 40, "-.º*+xX0" , update3, column2, ["red",])*/
 ]
 
 
@@ -98,15 +103,3 @@ setInterval(() => {
 }, 2000)
 
 
-
-function getSin(x) {
-    return Math.floor((Math.sin(x) +1) * color.length/2)
-}
-
-function returnColor(n) {
-    return color[map(n, 0, 255, 0, color.length)]
-}
-
-function map(value, start1, stop1, start2, stop2) {
-  return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1));
-}
