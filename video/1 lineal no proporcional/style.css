@@ -11,9 +11,7 @@ p {
     position: absolute;
 }
 
-p {
-    font-size: 5rem;
-}
+
 
 p.big {
     font-size: 50rem;

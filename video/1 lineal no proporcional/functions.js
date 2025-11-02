@@ -2,10 +2,10 @@
 function getSin(x, gain = 50) {
     // recieves an x and a gain, returns sin(x) * gain
     // gain is direct, higher gain is more saturation
-    return (Math.sin(x) +1) * gain/2
+    return (Math.sin(x/6.28) +1) * gain/2
 }
 
-function returnColor(x, gain = 50, palette = defaultColor) {
+function returnColor(x, gain = 16, palette = defaultColor) {
     // gain is inverse, when its smaller it saturates most, when higher it saturates less
     let i = map(x, 0, gain, 0, palette.length) 
     i = Math.floor(i)
@@ -23,6 +23,7 @@ function returnEnvelope(x, p, total = 1) {
     // total is there to work with proportions. You can send a Plasma.width, for example, to return in proportions to that width. Leave blanck to work with absolute pixels
     //* hay un bug donde, si p[0] = p[1] entonces f(0) = 0, pero si p[2] = p[3] entonces f(0) =/=nmj  0
     let params = p.map( (a) => a * total)
+    console.log(params)
     
     if (x <= params[0]) {
         return 0

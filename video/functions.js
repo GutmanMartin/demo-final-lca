@@ -2,10 +2,10 @@
 function getSin(x, gain = 50) {
     // recieves an x and a gain, returns sin(x) * gain
     // gain is direct, higher gain is more saturation
-    return (Math.sin(x) +1) * gain/2
+    return (Math.sin(x/6.28) +1) * gain/2
 }
 
-function returnColor(x, gain = 50, palette = defaultColor) {
+function returnColor(x, gain = 16, palette = defaultColor) {
     // gain is inverse, when its smaller it saturates most, when higher it saturates less
     let i = map(x, 0, gain, 0, palette.length) 
     i = Math.floor(i)
