@@ -1,0 +1,54 @@
+p {
+    font-family: monospace;
+    line-height: 0%;
+    
+    text-wrap: nowrap;
+    
+}
+
+.container {
+    padding-top: 0;
+    position: absolute;
+}
+
+p {
+    font-size: 5rem;
+}
+
+p.big {
+    font-size: 50rem;
+    
+   margin-top: 300px;
+    margin-bottom: 700px;
+}
+
+p.small {
+    
+    font-size: 0.5rem;
+}
+
+
+
+.red{
+    color: red;
+}
+
+.blue {
+    color:blue;
+}
+
+.green {
+    color: green;
+}
+
+body {
+   /* margin: 10em;
+    border: black 2px dotted; */
+}
+
+.columns {
+    display: block;
+    width: 10000px;
+    height: 10000px;
+
+}
