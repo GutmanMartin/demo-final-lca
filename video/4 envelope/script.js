@@ -8,7 +8,7 @@ const update1 = function () {
             for (let x = 0; x < this.WIDTH; x++) {
                 let a = getSin(y,16)
 
-                let envelope = [0, 20, 50, 50]
+                let envelope = [0, 20, 50, 70]
                 
                 let b = a * returnEnvelope(x, envelope)
 

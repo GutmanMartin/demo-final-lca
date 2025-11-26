@@ -2,7 +2,7 @@ const update1 = function () {
     for (let y = 0; y < this.HEIGHT; y++) {
             for (let x = 0; x < this.WIDTH; x++) {
                 
-                this.plasma[y][x] = y%10
+                this.plasma[y][x] = x%10
             }
         }
 }

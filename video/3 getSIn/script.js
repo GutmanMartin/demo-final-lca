@@ -8,8 +8,9 @@ let t = 0
 const update1 = function () {
     for (let y = 0; y < this.HEIGHT; y++) {
             for (let x = 0; x < this.WIDTH; x++) {
-                let a = getSin(x + y + t/10) 
-                this.plasma[y][x] = returnColor(a, 100)
+                let a = getSin(x / (y+1)+ t/10) * getSin(x/10)/10
+
+                this.plasma[y][x] = returnColor(a, 50)
             }
         }
 }
