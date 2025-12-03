@@ -44,14 +44,3 @@ function returnEnvelope(x, p, total = 1) {
         return 0
     }
 }
-
-function surroundChars(str, char, startWrap, endWrap) {
-   // Escape regex metacharacters in the target character
-  const escapedChar = char.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-
-  // Regex capturing consecutive runs of that character
-  const regex = new RegExp(`(${escapedChar}+)`, "g");
-
-  // Surround each run with the wrappers
-  return str.replace(regex, startWrap + "$1" + endWrap);
-}

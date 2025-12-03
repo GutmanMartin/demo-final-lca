@@ -9,8 +9,10 @@ class Plasma {
         this.color = c
     
         for (let y = 0; y < this.HEIGHT; y++) {
-            this.plasma.push("")
-            
+            this.plasma.push([])
+            for (let x = 0; x < this.HEIGHT; x++) {
+                this.plasma[y].push(0)
+            }
             const p = document.createElement("p")
             p.classList.add("pLine")
             for (let i = 0; i < classes.length; i++) {
@@ -24,7 +26,11 @@ class Plasma {
 
     draw() {
         for (let y = 0; y < this.HEIGHT; y++) {
-            this.pLines[y].innerHTML = this.plasma[y]
+            let line = ""
+            for (let x = 0; x < this.WIDTH; x++) {
+                line += this.plasma[y][x]
+            }
+            this.pLines[y].textContent = line
         }
     }
 }

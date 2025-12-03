@@ -10,29 +10,19 @@ const CUADRICULA_2 = [
 
 const update1 = function () {
     for (let y = 0; y < this.HEIGHT; y++) {
-    let line = ""
-        for (let x = 0; x < this.WIDTH; x++) {
-            let a = getSin(
-                x/16
-                + y/8 
-                + t / 100
-               // + getSin(x/50)
-                //- getSin(y/20 + t/100)
-            ) 
-            let color = returnColor(a, 50)
+            for (let x = 0; x < this.WIDTH; x++) {
+                let a = getSin(
+                    x/16
+                    + y/8 
+                    + t / 100
+                   // + getSin(x/50)
+                    //- getSin(y/20 + t/100)
+                ) 
+                let color = returnColor(a, 50)
 
-            line = `${line}${color}`
+                this.plasma[y][x] = color
+            }
         }
-        
-        //this.plasma[y] = line
-        //console.log(this.plasma[y])
-        line = surroundChars(line, '.', '<a href="#">', '</a>')
-        this.plasma[y] = line
-        if (i = 1) {
-            console.log(line)
-        }
-    }
-
 }
 
 const update2 = function () {
@@ -210,9 +200,9 @@ const column3 = document.querySelector(".column3")
 let t = 0
 
 const cuadros = [
-    new Plasma(100, 60, defaultColor, update1, column1,),
-    //new Plasma(1000, 300, defaultColor, update4, column2, ["green", "small"]),
-    //new Plasma(80, 24, colorBig , update1, column3, [, "big"]),
+    new Plasma(200, 60, defaultColor, update2, column1, ["blue",]),
+    new Plasma(1000, 300, defaultColor, update4, column2, ["green", "small"]),
+    new Plasma(80, 24, colorBig , update1, column3, [, "big"]),
     //new Plasma(80, 40, "-.º*+xX0" , update3, column2, ["red",])
 ]
 
@@ -234,15 +224,12 @@ function draw() {
     }
 }
 
-
-
-
 update()
 draw()
-/*setInterval(() => {
+setInterval(() => {
     update()
     draw()
 
 }, 200)
 
-*/
+
