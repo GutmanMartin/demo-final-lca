@@ -16,8 +16,6 @@ function map(value, start1, stop1, start2, stop2) {
   return start2 + (stop2 - start2) * ((value - start1) / (stop1 - start1));
 }
 
-let a = [10, 20, 30, 40]
-
 function returnEnvelope(x, p, total = 1) {
     // recieves an array with 4 values and a x value. returns f(x) where f is a function that returns 0 before params[0], raises to 1 between params[0] and params[1], 1 between params[1] and params[2], falls till params[3] and 0 afterwards
     // total is there to work with proportions. You can send a Plasma.width, for example, to return in proportions to that width. Leave blanck to work with absolute pixels
@@ -56,4 +54,36 @@ function surroundChars(str, char, startWrap, endWrap) {
 
   // Surround each run with the wrappers
   return str.replace(regex, startWrap + "$1" + endWrap);
+}
+
+
+class Plasma {
+    constructor(w, h, c, upd, container, classes = []) {
+
+        this.plasma = []
+        this.pLines = []
+        this.WIDTH = w
+        this.HEIGHT = h
+        this.update = upd
+        this.color = c
+    
+        for (let y = 0; y < this.HEIGHT; y++) {
+            this.plasma.push("")
+            
+            const p = document.createElement("p")
+            p.classList.add("pLine")
+            for (let i = 0; i < classes.length; i++) {
+                p.classList.add(classes[i]);
+                
+            }
+            container.appendChild(p)
+            this.pLines.push(p)
+        }
+    }
+
+    draw() {
+        for (let y = 0; y < this.HEIGHT; y++) {
+            this.pLines[y].innerHTML = this.plasma[y]
+        }
+    }
 }

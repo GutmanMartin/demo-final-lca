@@ -26,9 +26,7 @@ const update1 = function () {
 
             line = `${line}${color}`
         }
-        
-        //this.plasma[y] = line
-        //console.log(this.plasma[y])
+
         line = surroundChars(line, '.', '<span class="green">', '</span>')
         this.plasma[y] = line
     }
@@ -39,6 +37,7 @@ const update2 = function () {
     const w = this.WIDTH
     const h = this.HEIGHT
     for (let y = 0; y < h; y++) {
+        let line = ""
         by = returnEnvelope(y, [0, 0.2, 0.8, 1], h)// * 0.7
 
         for (let x = 0; x < w; x++) {
@@ -58,14 +57,17 @@ const update2 = function () {
 
             
 
-            this.plasma[y][x] = color
-
+          line = `${line}${color}`
         }
+
+        line = surroundChars(line, '.', '<span class="green">', '</span>')
+        this.plasma[y] = line
     }
 }
 
 const update3 = function () {
     for (let y = 0; y < this.HEIGHT; y++) {
+        let line = ""
         for (let x = 0; x < this.WIDTH; x++) {
             let a = getSin(
  //               x/16
@@ -78,14 +80,18 @@ const update3 = function () {
 
             let color = returnColor(a, 50)
 
-            this.plasma[y][x] = color
+            line = `${line}${color}`
         }
+
+        line = surroundChars(line, '.', '<span class="green">', '</span>')
+        this.plasma[y] = line
     }
 }
 
 const update4 = function () {
     const w = this.WIDTH
     for (let y = 0; y < this.HEIGHT; y++) {
+        let line = ""
         for (let x = 0; x < this.WIDTH; x++) {
             let a = getSin(y /8,10) / getSin(x / 8 - y/5,10) * getSin(t/1000)
 
@@ -94,14 +100,18 @@ const update4 = function () {
         
 
             const color = returnColor(a, 100)
-            this.plasma[y][x] = color
+            line = `${line}${color}`
         }
+
+        line = surroundChars(line, '.', '<span class="green">', '</span>')
+        this.plasma[y] = line
     }
 }
 
 const update5 = function () {
     const w = this.WIDTH
     for (let y = 0; y < this.HEIGHT; y++) {
+        let line = ""
         for (let x = 0; x < this.WIDTH; x++) {
             let a = getSin(y /8) 
 
@@ -115,8 +125,11 @@ const update5 = function () {
                         //+ returnEnvelope(y, [40, 60, 95, 100]) *d
 
             const color = returnColor(c, 70)
-            this.plasma[y][x] = color
+            line = `${line}${color}`
         }
+
+        line = surroundChars(line, '.', '<span class="green">', '</span>')
+        this.plasma[y] = line
     }
 }
 
@@ -126,6 +139,7 @@ const update6 = function () {
     const h = this.HEIGHT
 
     for (let y = 0; y < h; y++) {
+        let line = ""
         for (let x = 0; x < w; x++) {
             let a = getSin(
                     x/40
@@ -166,8 +180,11 @@ const update6 = function () {
             )
             //const color = returnColor(d, 40)
 
-            this.plasma[y][x] = color
+           line = `${line}${color}`
         }
+
+        line = surroundChars(line, '.', '<span class="green">', '</span>')
+        this.plasma[y] = line
     
     }
 }
@@ -177,7 +194,9 @@ const updateBig = function () {
     const h = this.HEIGHT
 
     for (let y = 0; y < h; y++) {
+        let line = ""
         for (let x = 0; x < w; x++) {
+            
             let a = getSin(x/10, 10)
 
             let b = getSin(y/10, 10)
@@ -188,8 +207,11 @@ const updateBig = function () {
             const color = returnColor(
                 b*a, 50, colorBig
             )
-            this.plasma[y][x] = color
+            line = `${line}${color}`
         }
+
+        line = surroundChars(line, '.', '<span class="green">', '</span>')
+        this.plasma[y] = line
     }
 }
 
@@ -202,9 +224,9 @@ const column3 = document.querySelector(".column3")
 let t = 0
 
 const cuadros = [
-    new Plasma(40, 20, defaultColor, update1, column1,),
-    //new Plasma(1000, 300, defaultColor, update4, column2, ["green", "small"]),
-    //new Plasma(80, 24, colorBig , update1, column3, [, "big"]),
+    new Plasma(500, 500, defaultColor, update1, column1,),
+    new Plasma(500, 300, defaultColor, update4, column2,),
+    new Plasma(80, 24, defaultColor , update1, column3, ),
     //new Plasma(80, 40, "-.º*+xX0" , update3, column2, ["red",])
 ]
 
